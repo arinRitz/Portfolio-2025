@@ -9,7 +9,7 @@ import { Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import dev12 from "../../assets/dev12.png";
 
-const dashboard = () => {
+const Dashboard = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [showScroll, setShowScroll] = useState<boolean>(false);
 
@@ -58,10 +58,10 @@ const dashboard = () => {
                 scrollTop();
               }}
             >
-            {' </0xAhsanRaza>'}
+              {'</0xAhsanRaza>'}
             </a>
             <div className="hidden md:flex items-center gap-8">
-              {['projects', 'skills', 'contact'].map(section => (
+              {['projects', 'skills', 'contact'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
@@ -102,87 +102,88 @@ const dashboard = () => {
         </Button>
       </motion.div>
 
-     {/* Hero Section */}
-<section className="px-4 md:px-12 lg:px-24 py-16 max-w-screen-xl mx-auto">
-  <motion.div
-    initial="hidden"
-    animate="visible"
-    variants={{
-      hidden: {},
-      visible: {
-        transition: {
-          staggerChildren: 0.15,
-        },
-      },
-    }}
-    className="flex flex-col md:flex-row items-center gap-10"
-  >
-    {/* Image */}
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-dashed border-[#7DD3FC]"
-    >
-      <Image
-        src={dev12}
-        alt="Ahsan Raza"
-        fill
-        className="object-cover"
-        priority
-      />
-    </motion.div>
+      {/* Hero Section */}
+      <section className="px-4 md:px-12 lg:px-24 py-16 max-w-screen-xl mx-auto">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          className="flex flex-col md:flex-row items-center gap-10"
+        >
+          {/* Image */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-dashed border-[#7DD3FC]"
+          >
+            <Image
+              src={dev12}
+              alt="Ahsan Raza's developer avatar"
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
 
-    {/* Text */}
-    <motion.div
-      className="space-y-4 text-center md:text-left"
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <motion.h1
-        className={`text-3xl md:text-5xl font-bold ${colors.text}`}
-        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        Hi, I'm Ahsan
-      </motion.h1>
+          {/* Text */}
+          <motion.div
+            className="space-y-4 text-center md:text-left"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.h1
+              className={`text-3xl md:text-5xl font-bold ${colors.text}`}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+            Hi, I&rsquo;m Ahsan
 
-      <motion.p
-        className={`text-lg md:text-xl ${colors.text} leading-relaxed`}
-        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        I develop Web Applications,<br />
-        Integrate LLMs into web,<br />
-        and Learn CyberSecurity<br />
-        <span className={`font-medium ${colors.accent}`}>Aim to develop something that worths</span>
-      </motion.p>
+            </motion.h1>
 
-      {/* Buttons */}
-      <motion.div
-        className="flex flex-wrap gap-4 justify-center md:justify-start"
-        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <Button className="gap-2" variant="secondary">
-          <FaFileDownload className="w-4 h-4" />
-          Resume
-        </Button>
-        <Button variant="secondary" size="icon" aria-label="GitHub">
-          <FaGithub className="w-4 h-4" />
-        </Button>
-        <Button variant="secondary" size="icon" aria-label="LinkedIn">
-          <FaLinkedin className="w-4 h-4" />
-        </Button>
-      </motion.div>
-    </motion.div>
-  </motion.div>
-</section>
+            <motion.p
+              className={`text-lg md:text-xl ${colors.text} leading-relaxed`}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              I develop Web Applications,<br />
+              Integrate LLMs into web,<br />
+              and Learn CyberSecurity<br />
+              <span className={`font-medium ${colors.accent}`}>Aim to develop something that worths</span>
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <Button className="gap-2" variant="secondary">
+                <FaFileDownload className="w-4 h-4" />
+                Resume
+              </Button>
+              <Button variant="secondary" size="icon" aria-label="GitHub">
+                <FaGithub className="w-4 h-4" />
+              </Button>
+              <Button variant="secondary" size="icon" aria-label="LinkedIn">
+                <FaLinkedin className="w-4 h-4" />
+              </Button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
 
 
       {/* Sections */}
@@ -300,11 +301,13 @@ const dashboard = () => {
           <Card className={`${colors.secondary} border-0`}>
             <CardContent className="p-6">
               <blockquote className="space-y-4">
-                <p className={`text-xl italic ${colors.text}`}>
-                  "Ahsan demonstrated exceptional problem-solving skills in our AI project,
-                  consistently delivering innovative solutions under tight deadlines."
-                </p>
-                <footer className={`font-medium ${colors.accent}`}>– Project Supervisor, FYP</footer>
+            <p className={`text-xl italic ${colors.text}`}>
+  &quot;Ahsan demonstrated exceptional problem-solving skills in our AI project,
+  consistently delivering innovative solutions under tight deadlines.&quot;
+</p>
+
+                <footer className={`font-medium ${colors.accent}`}>&#8211; Project Supervisor, FYP</footer>
+
               </blockquote>
             </CardContent>
           </Card>
@@ -315,7 +318,8 @@ const dashboard = () => {
       <footer id="contact" className={`px-4 md:px-12 lg:px-24 py-10 ${colors.secondary} mt-12`}>
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className={`text-sm ${colors.text} text-center md:text-left`}>
-            Let's build something meaningful together
+            Let&rsquo;s build something meaningful together
+
           </p>
           <Button className={`${colors.accent} border-current`} onClick={() => window.open('mailto:arkolachi@gmail.com')}>
             Get in Touch
@@ -326,4 +330,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default Dashboard;
