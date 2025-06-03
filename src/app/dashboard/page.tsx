@@ -329,13 +329,11 @@ useEffect(() => {
       </section>
 
       {/* Footer */}
-      <footer
-        className={`py-6 text-center text-sm ${colors.text} border-t ${
-          darkMode ? "border-gray-800" : "border-gray-200"
-        }`}
-      >
-        &copy; {new Date().getFullYear()} Ahsan Raza. All rights reserved.
-      </footer>
+      <footer className={`py-4 text-center text-sm ${colors.text} border-t ${
+    darkMode ? "border-gray-800" : "border-gray-200"
+  }`}>
+    &copy; {new Date().getFullYear()} Ahsan Raza. All rights reserved.
+  </footer>
     </div>
   );
 };
