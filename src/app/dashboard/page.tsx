@@ -59,7 +59,8 @@ useEffect(() => {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${colors.primary}`}>
+    <div className={`min-h-screen pb-24 transition-colors duration-300 ${colors.primary}`}>
+
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b ${darkMode ? 'border-gray-800/30' : 'border-gray-200/30'}`}
