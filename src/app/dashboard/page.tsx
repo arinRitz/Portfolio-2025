@@ -149,8 +149,7 @@ const Dashboard = () => {
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-            Hi, I&rsquo;m Ahsan
-
+              Hi, I&rsquo;m Ahsan
             </motion.h1>
 
             <motion.p
@@ -184,7 +183,6 @@ const Dashboard = () => {
           </motion.div>
         </motion.div>
       </section>
-
 
       {/* Sections */}
       {[
@@ -252,7 +250,7 @@ const Dashboard = () => {
           content: (
             <div className="grid gap-6 md:grid-cols-2">
               {[
-                 { title: "VU-ITU-DTC-Cyber Threat Management", org: "Cisco Network Academy", date: "May 2025" }, 
+                { title: "VU-ITU-DTC-Cyber Threat Management", org: "Cisco Network Academy", date: "May 2025" }, 
                 { title: "Cybersecurity Essentials", org: "Cisco Network Academy", date: "Jan 2024" },
                 { title: "Technical Domain", org: "National Freelance Training Program", date: "Jan 2023" },
                 { title: "Web Engineering Bootcamp", org: "Sukkur IBA IET", date: "Aug 2022" },
@@ -301,13 +299,12 @@ const Dashboard = () => {
           <Card className={`${colors.secondary} border-0`}>
             <CardContent className="p-6">
               <blockquote className="space-y-4">
-            <p className={`text-xl italic ${colors.text}`}>
-  &quot;Ahsan demonstrated exceptional problem-solving skills in our AI project,
-  consistently delivering innovative solutions under tight deadlines.&quot;
-</p>
+                <p className={`text-xl italic ${colors.text}`}>
+                  &quot;Ahsan demonstrated exceptional problem-solving skills in our AI project,
+                  consistently delivering innovative solutions under tight deadlines.&quot;
+                </p>
 
                 <footer className={`font-medium ${colors.accent}`}>&#8211; Project Supervisor, FYP</footer>
-
               </blockquote>
             </CardContent>
           </Card>
@@ -315,16 +312,12 @@ const Dashboard = () => {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className={`px-4 md:px-12 lg:px-24 py-10 ${colors.secondary} mt-12`}>
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className={`text-sm ${colors.text} text-center md:text-left`}>
-            Let&rsquo;s build something meaningful together
-
-          </p>
-          <Button className={`${colors.accent} border-current`} onClick={() => window.open('mailto:arkolachi@gmail.com')}>
-            Get in Touch
-          </Button>
-        </div>
+      <footer
+        className={`py-6 text-center text-sm ${colors.text} border-t ${
+          darkMode ? "border-gray-800" : "border-gray-200"
+        }`}
+      >
+        &copy; {new Date().getFullYear()} Ahsan Raza. All rights reserved.
       </footer>
     </div>
   );
