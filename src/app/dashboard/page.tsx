@@ -108,7 +108,8 @@ useEffect(() => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: showScroll ? 1 : 0 }}
-        className="fixed bottom-8 right-8 z-50"
+       className="fixed bottom-16 md:bottom-12 right-6 z-50"
+
       >
         <Button
           onClick={scrollTop}
