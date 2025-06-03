@@ -10,7 +10,24 @@ import Image from "next/image";
 import dev12 from "../../assets/dev12.png";
 
 const Dashboard = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+  if (typeof window !== "undefined" && window.matchMedia) {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  return false;
+});
+
+useEffect(() => {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const handleChange = (e: MediaQueryListEvent) => {
+    setDarkMode(e.matches);
+  };
+
+  mediaQuery.addEventListener("change", handleChange);
+  return () => mediaQuery.removeEventListener("change", handleChange);
+}, []);
+
   const [showScroll, setShowScroll] = useState<boolean>(false);
 
   const checkScrollTop = () => {
