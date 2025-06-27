@@ -1,46 +1,36 @@
-// src/app/api/visitors/route.ts
-import { NextRequest, NextResponse } from 'next/server'
-import { MongoClient } from 'mongodb'
+import clientPromise from '@/lib/mongodb'
+import { NextResponse } from 'next/server'
 
-const uri = process.env.MONGODB_URI!
-
-const client = new MongoClient(uri)
-const dbName = 'dashboard'
-
-export async function POST(req: NextRequest) {
-  const forwardedFor = req.headers.get('x-forwarded-for')
-  const ip = forwardedFor?.split(',')[0]?.trim() || 'unknown'
-
-  const userAgent = req.headers.get('user-agent') || 'unknown'
-  const time = new Date().toISOString()
-
+export async function POST(req: Request) {
   try {
-    await client.connect()
-    const db = client.db(dbName)
-    const visitors = db.collection('visitors')
+    const client = await clientPromise
+    const db = client.db(process.env.MONGODB_DB)
+    const collection = db.collection('visitors')
 
-    await visitors.insertOne({ ip, userAgent, time })
-    return NextResponse.json({ message: 'Visitor logged' })
+    const ip = req.headers.get('x-forwarded-for') || 'unknown'
+    const userAgent = req.headers.get('user-agent') || 'unknown'
+    const timestamp = new Date().toISOString()
+
+    await collection.insertOne({ ip, userAgent, timestamp })
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('POST Error:', error)
-    return NextResponse.json({ error: 'Failed to log visitor' }, { status: 500 })
-  } finally {
-    await client.close()
+    console.error('Mongo POST error:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
 
 export async function GET() {
   try {
-    await client.connect()
-    const db = client.db(dbName)
-    const visitors = db.collection('visitors')
+    const client = await clientPromise
+    const db = client.db(process.env.MONGODB_DB)
+    const collection = db.collection('visitors')
 
-    const count = await visitors.countDocuments()
-    return NextResponse.json({ count })
+    const visitors = await collection.find().sort({ timestamp: -1 }).limit(100).toArray()
+    const count = await collection.countDocuments()
+
+    return NextResponse.json({ count, visitors })
   } catch (error) {
-    console.error('GET Error:', error)
-    return NextResponse.json({ error: 'Failed to get count' }, { status: 500 })
-  } finally {
-    await client.close()
+    console.error('Mongo GET error:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
