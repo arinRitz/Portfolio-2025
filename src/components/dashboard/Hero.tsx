@@ -59,7 +59,8 @@ const Hero = () => {
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
             I develop Web Applications,<br />
-            Integrate LLMs into web,<br />
+            integrate LLMs into web,<br />
+            explore Networking,<br />
             and Learn CyberSecurity<br />
             <span className={`font-medium ${colors.accent}`}>Aim to develop something that worths</span>
           </motion.p>
