@@ -11,7 +11,7 @@ import Achievements from "@/components/dashboard/Achievements";
 import Testimonials from "@/components/dashboard/Testimonials";
 import Footer from "@/components/dashboard/Footer";
 import ScrollToTop from "@/components/dashboard/ScrollToTop";
-import useVisitorCount from '@/hooks/useVisitorCount'
+
 
 const Dashboard = () => {
   const { colors } = useTheme();
@@ -19,13 +19,6 @@ const Dashboard = () => {
 
 
   
-const counti = useVisitorCount()
-  const checkScrollTop = () => setShowScroll(window.pageYOffset > 400);
-  
-  useEffect(() => {
-    window.addEventListener("scroll", checkScrollTop);
-    return () => window.removeEventListener("scroll", checkScrollTop);
-  }, []);
 
   return (
     <div className={`min-h-screen pb-24 transition-colors duration-300 ${colors.primary}`}>
@@ -39,7 +32,7 @@ const counti = useVisitorCount()
       <Certifications />
       <Achievements />
       
-       <p className="mt-2 text-gray-600">Visitors: <strong>{counti}</strong></p>
+  
       <Testimonials />
       
       <Footer />
