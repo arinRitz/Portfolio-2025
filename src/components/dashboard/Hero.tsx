@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import Image from "next/image";
 import dev12 from "@/assets/dev12.png";
 import { useTheme } from "@/context/ThemeContext";
+import Link from "next/link";
 
 const Hero = () => {
   const { colors } = useTheme();
@@ -65,15 +66,22 @@ const Hero = () => {
             className="flex flex-wrap gap-4 justify-center md:justify-start"
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
-            <Button className="gap-2" variant="secondary">
-              <FaFileDownload className="w-4 h-4" />
-              Resume
-            </Button>
+           <Button asChild variant="secondary" className="gap-2">
+      <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>
+        <FaFileDownload className="w-4 h-4" />
+        Resume
+      </Link>
+    </Button>
             <Button variant="secondary" size="icon" aria-label="GitHub">
+              <Link href="https://github.com/arinRitz"  target="_blank" rel="noopener noreferrer">
               <FaGithub className="w-4 h-4" />
+              </Link>
             </Button>
+            
             <Button variant="secondary" size="icon" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/in/ahsan-raza8hbb/"  target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="w-4 h-4" />
+               </Link>
             </Button>
           </motion.div>
         </motion.div>
