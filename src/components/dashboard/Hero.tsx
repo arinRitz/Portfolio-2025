@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import Image from "next/image";
-import dev12 from "@/assets/dev12.png";
+import dev12 from "@/assets/dev-img.jpeg";
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
 
@@ -31,9 +31,11 @@ const Hero = () => {
           <Image
             src={dev12}
             alt="Developer avatar"
-            fill
-            className="object-cover"
-            priority
+     fill
+  sizes="192px" // or "192px" for md:w-48
+  className="object-cover"
+  priority
+  quality={80}
           />
         </motion.div>
 
