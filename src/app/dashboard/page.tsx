@@ -1,6 +1,5 @@
 'use client';
-
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ThemeProvider, useTheme } from "@/context/ThemeContext";
 import Navbar from "@/components/dashboard/Navbar";
 import Hero from "@/components/dashboard/Hero";
@@ -15,7 +14,7 @@ import ScrollToTop from "@/components/dashboard/ScrollToTop";
 
 const Dashboard = () => {
   const { colors } = useTheme();
-  const [showScroll, setShowScroll] = useState(false);
+  const [showScroll] = useState(false);
 
 
   
