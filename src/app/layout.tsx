@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ahsan Raza | Networking/Full Stack Developer/Cybersecurity Learner",
+  title: "Ahsan Raza | Networking / Full Stack Developer / Cybersecurity Learner",
   description: "Ahsan Raza Baloch is a Computer Science graduate passionate about web application development, LLM integration, networking, and cybersecurity. He actively builds innovative digital solutions, experiments with AI-powered tools, and strengthens his expertise in secure and scalable systems.",
 };
 
